@@ -1,0 +1,5 @@
+<table name="Skill GG">
+	<AddFiles directory="assets">
+		<texture path="guis/skill_gg/1_gawr_gura_A/icon01" />
+	</AddFiles>
+</table>

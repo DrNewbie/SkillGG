@@ -1,0 +1,12 @@
+{
+  "skill_gg_menu_name": "Skill GG",
+  "skill_gg_none_text": " ",
+  "bm_menu_btn_equip_skill_gg": "Equip",
+  "bm_menu_btn_unequip_skill_gg": "Unequip",
+  "skill_gg_skill_desc_cd": "[ Cooldown: $$cd$$ ]",
+  "skill_gg_skill_desc_tt": "[ Times of use: $$tt$$ ]",
+  "skill_gg_skill_0_name": "No Skill",
+  "skill_gg_skill_0_desc": " ",
+  "skill_gg_skill_1_name": "Gawr Gura 'A'",
+  "skill_gg_skill_1_desc": "Ignite on each nearby people."
+}
