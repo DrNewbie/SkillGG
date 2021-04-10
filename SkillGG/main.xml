@@ -1,4 +1,10 @@
 <table name="Skill GG">
+	<AssetUpdates id="Skill GG" version="1">
+        <custom_provider 
+			version_api_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.txt" 
+			download_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.zip"
+		/>
+    </AssetUpdates>
 	<AddFiles directory="assets">
 		<texture path="guis/skill_gg/1_gawr_gura_A/icon01" />
 	</AddFiles>
