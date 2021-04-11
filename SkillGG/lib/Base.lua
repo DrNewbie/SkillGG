@@ -229,6 +229,21 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 		return self:GetSkillKey() == key
 	end
 	
+	function SkillGGSystem:MainLoopFunctionPre(t, dt)
+		return
+	end
+	
+	function SkillGGSystem:MainLoopFunctionPost(t, dt)
+		if self.AskUseSkill then
+			self.AskUseSkill = false
+			local skill_data = self:GetSkillData()
+			if skill_data and skill_data.func then
+				dofile(tostring(skill_data.func))
+			end
+		end
+		return
+	end
+	
 	function SkillGGSystem:GetSkillFullDesc(var)
 		var = var or self:GetCurretSkill()
 		local skill_data = self:GetSkillData(var)

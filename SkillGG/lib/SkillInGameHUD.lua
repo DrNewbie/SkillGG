@@ -55,15 +55,10 @@ if HUDManager and string.lower(RequiredScript) == "lib/managers/hudmanagerpd2" t
 elseif PlayerDamage and string.lower(RequiredScript) == "lib/units/beings/player/playerdamage" then
 	Hooks:PostHook(PlayerDamage, "update", "GG_"..Idstring("SkillGG:2:SkillHUDUpdate"):key(), function(self, unit, t, dt)
 		if managers.hud and managers.hud.skill_gg_update then
+			SkillGGSystem:MainLoopFunctionPre(t, dt)
 			SkillGGSystem:AddSkillDT(dt)
+			SkillGGSystem:MainLoopFunctionPost(t, dt)
 			managers.hud:skill_gg_update(t, dt)
-			if SkillGGSystem.AskUseSkill then
-				SkillGGSystem.AskUseSkill = false
-				local skill_data = SkillGGSystem:GetSkillData()
-				if skill_data and skill_data.func then
-					dofile(tostring(skill_data.func))
-				end
-			end
 		end
 	end)	
 end
