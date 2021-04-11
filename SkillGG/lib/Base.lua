@@ -232,6 +232,9 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 	function SkillGGSystem:GetSkillFullDesc(var)
 		var = var or self:GetCurretSkill()
 		local skill_data = self:GetSkillData(var)
+		if not skill_data then
+			return "ERROR GetSkillFullDesc"
+		end
 		local __desc = managers.localization:to_upper_text("skill_gg_menu_name")
 		__desc = __desc .. ": " ..	managers.localization:text(skill_data.name) .. "\n"
 		__desc = __desc .. "\n" ..	managers.localization:text(skill_data.desc) .. "\n"
