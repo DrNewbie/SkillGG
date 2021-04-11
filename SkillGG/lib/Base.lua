@@ -22,9 +22,20 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 			desc = "skill_gg_skill_1_desc",
 			bool_me = true,
 			texture = "guis/skill_gg/1_gawr_gura_A/icon01",
-			cd = 10,
+			cd = 30,
 			func = tostring(SkillGGSystem.ModPath.."lib/skill/1_gawr_gura_a/function.lua"),
-			ogg = tostring(SkillGGSystem.ModPath.."assets/sounds/ogg_aaaafdc75278f44d.ogg"),
+			ogg = "ogg_aaaafdc75278f44d",
+		},
+		{
+			name = "skill_gg_skill_2_name",
+			desc = "skill_gg_skill_2_desc",
+			bool_me = true,
+			texture = "guis/skill_gg/2_exusiai_overloading_mode/icon01",
+			cd = 30,
+			dt = 30,
+			dd = 10,
+			func = tostring(SkillGGSystem.ModPath.."lib/skill/2_exusiai_overloading_mode/function.lua"),
+			ogg = "ogg_45bd964f010ed73b",
 		}
 	}
 	
@@ -32,11 +43,14 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 		SkillGGSystem.SkillData[i].key = Idstring(tostring(i)):key()
 	end
 	
+	--[[
 	if blt.xaudio then
 		blt.xaudio.setup()
 	end
+	]]
 	
 	function SkillGGSystem:PlayOgg(__ogg)
+		--[[
 		if blt.xaudio then
 			if self.OggSource then
 				self.OggSource:close(true)
@@ -48,6 +62,10 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 			end
 			self.OggBuffer = XAudio.Buffer:new(__ogg)
 			self.OggSource = XAudio.Source:new(self.OggBuffer)
+		end
+		]]
+		if managers.player and managers.player:local_player() and alive(managers.player:local_player()) then
+			managers.player:local_player():sound():play(__ogg)
 		end
 		return
 	end
@@ -161,6 +179,7 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 		if skill_data then
 			self.Settings.skill_now = var
 			self.SkillCD = skill_data.cd or 1
+			self.SkillDT = skill_data.dt or 0
 			self:SetSkillHUDIcon(skill_data.texture)
 		end
 		self:save()
@@ -217,9 +236,14 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 		__desc = __desc .. ": " ..	managers.localization:text(skill_data.name) .. "\n"
 		__desc = __desc .. "\n" ..	managers.localization:text(skill_data.desc) .. "\n"
 		__desc = __desc .. "\n" ..	managers.localization:text("skill_gg_skill_desc_cd")
-		__desc = __desc .. "\n" ..	managers.localization:text("skill_gg_skill_desc_tt")
 		local __cd = skill_data.cd and (tostring(skill_data.cd).."s") or "None"
-		__desc = __desc:gsub("%$%$cd%$%$", __cd)		
+		__desc = __desc:gsub("%$%$cd%$%$", __cd)
+		if skill_data.dd then
+			__desc = __desc .. "\n" ..	managers.localization:text("skill_gg_skill_desc_dd")
+			local __dd = skill_data.dd and (tostring(skill_data.dd).."s") or "Unlimited"
+			__desc = __desc:gsub("%$%$dd%$%$", __dd)
+		end
+		__desc = __desc .. "\n" ..	managers.localization:text("skill_gg_skill_desc_tt")
 		local __tt = skill_data.tt and (tostring(skill_data.tt).."s") or "Unlimited"
 		__desc = __desc:gsub("%$%$tt%$%$", __tt)
 		return __desc

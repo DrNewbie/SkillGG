@@ -1,5 +1,5 @@
 <table name="Warcries">
-	<AssetUpdates id="Skill GG" version="2">
+	<AssetUpdates id="Skill GG" version="3">
         <custom_provider 
 			version_api_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.txt" 
 			download_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.zip"
@@ -7,5 +7,10 @@
     </AssetUpdates>
 	<AddFiles directory="assets">
 		<texture path="guis/skill_gg/1_gawr_gura_A/icon01" />
+		<texture path="guis/skill_gg/2_exusiai_overloading_mode/icon01" />
 	</AddFiles>
+	<Sounds directory="assets/sounds">
+		<sound id="ogg_aaaafdc75278f44d" path="ogg_aaaafdc75278f44d.ogg" prefix="first"/>
+		<sound id="ogg_45bd964f010ed73b" path="ogg_45bd964f010ed73b.ogg" prefix="first"/>
+	</Sounds>
 </table>

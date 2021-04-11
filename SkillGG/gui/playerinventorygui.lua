@@ -38,8 +38,8 @@ end
 
 function PlayerInventoryGui:open_skill_gg_menu()
 	local override_slots = {
-		3,
-		3
+		5,
+		5
 	}
 	local new_node_data = {}
 
@@ -62,13 +62,24 @@ end
 Hooks:PostHook(PlayerInventoryGui, "init", "GG_"..Idstring("SkillGG:1::PlayerInventoryGui"):key(), function(self)
 	local __image = SkillGGSystem:GetSkillIcon()
 	local __text = managers.localization:to_upper_text(SkillGGSystem:GetSkillName())
-		
+
+	local padding_x = 10
+	local padding_y = 0
+	local x = self._panel:w() - 500
+	local y = TOP_ADJUSTMENT + tweak_data.menu.pd2_small_font_size
+	local width = self._panel:w() - x
+	local height = 540
+	local combined_width = width - padding_x * 2
+	local combined_height = height - padding_y * 3
+	local box_width = combined_width / 3
+	local box_height = combined_height / 4
+
 	local skill_gg_box_data = {
 		alpha = 1,
 		name = "skill_gg",
 		bg_blend_mode = "normal",
-		w = 128,
-		h = 128,
+		w = box_width,
+		h = box_height,
 		unselected_text = __text,
 		text = __text,
 		image = __image,

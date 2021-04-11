@@ -9,7 +9,7 @@ local function __use_skill_gg_gawr_gura_A()
 	local ply_std = ply:movement() and ply:movement()._states.standard
 	if ply_std and weapon_unit and ply_dmg then
 		SkillGGSystem:SetSkillDT(0)
-		SkillGGSystem:PlayOgg(SkillGGSystem.SkillData[1].ogg)
+		SkillGGSystem:PlayOgg(SkillGGSystem.SkillData[2].ogg)
 		local ply_pos = ply:position()
 		managers.explosion:play_sound_and_effects(
 			ply_pos,
