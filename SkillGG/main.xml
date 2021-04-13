@@ -1,5 +1,5 @@
 <table name="Warcries">
-	<AssetUpdates id="Skill GG" version="5">
+	<AssetUpdates id="Skill GG" version="6">
         <custom_provider 
 			version_api_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.txt" 
 			download_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.zip"

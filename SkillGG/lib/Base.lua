@@ -11,32 +11,31 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 	SkillGGSystem.OggBuffer = nil
 	SkillGGSystem.OggSource = nil
 	
-	SkillGGSystem.SkillData = {
-		{
-			name = "skill_gg_skill_0_name",
-			desc = "skill_gg_skill_0_desc",
-			bool_me = true,
-		},
-		{
-			name = "skill_gg_skill_1_name",
-			desc = "skill_gg_skill_1_desc",
-			bool_me = true,
-			texture = "guis/skill_gg/1_gawr_gura_A/icon01",
-			cd = 30,
-			func = tostring(SkillGGSystem.ModPath.."lib/skill/1_gawr_gura_a/function.lua"),
-			ogg = "ogg_aaaafdc75278f44d",
-		},
-		{
-			name = "skill_gg_skill_2_name",
-			desc = "skill_gg_skill_2_desc",
-			bool_me = true,
-			texture = "guis/skill_gg/2_exusiai_overloading_mode/icon01",
-			cd = 30,
-			dt = 30,
-			dd = 10,
-			func = tostring(SkillGGSystem.ModPath.."lib/skill/2_exusiai_overloading_mode/function.lua"),
-			ogg = "ogg_45bd964f010ed73b",
-		}
+	SkillGGSystem.SkillData = SkillGGSystem.SkillData or {}
+	SkillGGSystem.SkillData[1] = {
+		name = "skill_gg_skill_0_name",
+		desc = "skill_gg_skill_0_desc",
+		bool_me = true,
+	}
+	SkillGGSystem.SkillData[2] = {
+		name = "skill_gg_skill_1_name",
+		desc = "skill_gg_skill_1_desc",
+		bool_me = true,
+		texture = "guis/skill_gg/1_gawr_gura_A/icon01",
+		cd = 30,
+		func = tostring(SkillGGSystem.ModPath.."lib/skill/1_gawr_gura_a/function.lua"),
+		ogg = "ogg_aaaafdc75278f44d",
+	}
+	SkillGGSystem.SkillData[3] = {
+		name = "skill_gg_skill_2_name",
+		desc = "skill_gg_skill_2_desc",
+		bool_me = true,
+		texture = "guis/skill_gg/2_exusiai_overloading_mode/icon01",
+		cd = 30,
+		dt = 30,
+		dd = 10,
+		func = tostring(SkillGGSystem.ModPath.."lib/skill/2_exusiai_overloading_mode/function.lua"),
+		ogg = "ogg_45bd964f010ed73b",
 	}
 	
 	for i, _ in pairs(SkillGGSystem.SkillData) do
@@ -64,7 +63,13 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 			self.OggSource = XAudio.Source:new(self.OggBuffer)
 		end
 		]]
-		if managers.player and managers.player:local_player() and alive(managers.player:local_player()) then
+		if not __ogg then
+			local data = self:GetSkillData()
+			if data then
+				__ogg = data.ogg
+			end
+		end
+		if __ogg and managers.player and managers.player:local_player() and alive(managers.player:local_player()) then
 			managers.player:local_player():sound():play(__ogg)
 		end
 		return
