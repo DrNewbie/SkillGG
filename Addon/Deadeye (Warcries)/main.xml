@@ -1,0 +1,8 @@
+<table name="Deadeye (Warcries)">
+	<AddFiles directory="assets">
+		<texture path="guis/skill_gg/3_high_noon/icon01" />
+	</AddFiles>
+	<Sounds directory="assets/sounds">
+		<sound id="ogg_7c34974335688d94" path="ogg_7c34974335688d94.ogg" prefix="first"/>
+	</Sounds>
+</table>
