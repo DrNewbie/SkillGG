@@ -1,0 +1,5 @@
+<table name="Zed Time (Warcries)">
+	<AddFiles directory="assets">
+		<texture path="guis/skill_gg/4_zed_time/icon01" />
+	</AddFiles>
+</table>
