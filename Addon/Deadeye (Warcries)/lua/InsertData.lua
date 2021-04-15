@@ -18,6 +18,10 @@ function RS_DeadeteW:Clean()
 	self.Shot_Need_To_Do = 0
 	self.Block_SomeThing = false
 	self.Block_SomeThing_Time = 0
+	if managers.hud and managers.hud.hide_interaction_bar and managers.hud.hide_progress_timer_bar then
+		managers.hud:hide_interaction_bar()
+		managers.hud:hide_progress_timer_bar()
+	end
 	return
 end
 
