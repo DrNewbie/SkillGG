@@ -36,6 +36,7 @@ if HUDManager and string.lower(RequiredScript) == "lib/managers/hudmanagerpd2" t
 		})
 		SkillGGSystem:SetSkillHUDPanel(self._panel)
 		SkillGGSystem:SetCurretSkill()
+		Warcries._hud_skill_gg = self
 	end
 
 	function HUDSKILLGG:set_skill_gg_ratio(ratio)
@@ -55,23 +56,6 @@ if HUDManager and string.lower(RequiredScript) == "lib/managers/hudmanagerpd2" t
 
 	function HUDManager:skill_gg_update(t, dt, ratio)
 		self._hud_skill_gg:set_skill_gg_ratio(SkillGGSystem:GetSkillCDRatio())
-		if self._hud_skill_gg.__opt_bool then
-			if self._hud_skill_gg.__offset_x ~= Warcries.Options:GetValue("icon_offset_x") then
-				self._hud_skill_gg.__offset_x = Warcries.Options:GetValue("icon_offset_x")
-				self._hud_skill_gg._panel:set_center_x( self._hud_skill_gg._hud_panel:center_x() *  self._hud_skill_gg.__offset_x)			
-			end
-			if self._hud_skill_gg.__offset_y ~= Warcries.Options:GetValue("icon_offset_y") then
-				self._hud_skill_gg.__offset_y = Warcries.Options:GetValue("icon_offset_y")
-				self._hud_skill_gg._panel:set_center_y( self._hud_skill_gg._hud_panel:center_y() *  self._hud_skill_gg.__offset_y)			
-			end
-			if self._hud_skill_gg.__icon_sisze ~= Warcries.Options:GetValue("icon_size") then
-				self._hud_skill_gg.__icon_sisze = Warcries.Options:GetValue("icon_size")
-				self._hud_skill_gg._panel:set_w(200 * self._hud_skill_gg.__icon_sisze)
-				self._hud_skill_gg._panel:set_h(100 * self._hud_skill_gg.__icon_sisze)
-				self._hud_skill_gg._panel:child("icon"):set_w(48 * self._hud_skill_gg.__icon_sisze)
-				self._hud_skill_gg._panel:child("icon"):set_h(48 * self._hud_skill_gg.__icon_sisze)
-			end
-		end
 	end
 
 	Hooks:PostHook(HUDManager, "_setup_player_info_hud_pd2", "GG_"..Idstring("SkillGG:1:SkillHUDUpdate"):key(), function(self)

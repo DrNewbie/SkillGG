@@ -1,5 +1,5 @@
-<table name="Warcries" global_key="Warcries">
-	<AssetUpdates id="Skill GG" version="7">
+<table name="Warcries" global_key="Warcries" core_class="lib/Setup.lua">
+	<AssetUpdates id="Skill GG" version="8">
         <custom_provider 
 			version_api_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.txt" 
 			download_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.zip"
@@ -13,16 +13,19 @@
 		<sound id="ogg_aaaafdc75278f44d" path="ogg_aaaafdc75278f44d.ogg" prefix="first"/>
 		<sound id="ogg_45bd964f010ed73b" path="ogg_45bd964f010ed73b.ogg" prefix="first"/>
 	</Sounds>
-	<Options build_menu="true" auto_load="true">
+	<Options>
 		<options title_id="skill_gg_menu_name" desc_id="skill_gg_none_text">
 			<option type="number" min="-0.1" max="3.0" step="0.1" show_value="true" default_value="1.35" 
 				title_id="skill_gg_opt_x_offset" desc_id="skill_gg_none_text" name="icon_offset_x" 
+				value_changed="Warcries:OptChanged" 
 			/>
 			<option type="number" min="-0.1" max="3.0" step="0.1" show_value="true" default_value="1.35" 
 				title_id="skill_gg_opt_y_offset" desc_id="skill_gg_none_text" name="icon_offset_y" 
+				value_changed="Warcries:OptChanged" 
 			/>
 			<option type="number" min="0.1" max="5.0" step="0.1" show_value="true" default_value="1" 
 				title_id="skill_gg_opt_icon_size" desc_id="skill_gg_none_text" name="icon_size" 
+				value_changed="Warcries:OptChanged" 
 			/>
 		</options>
 	</Options>
