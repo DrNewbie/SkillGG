@@ -2,7 +2,7 @@
   "name": "Warcries",
   "description": " ",
   "author": "Dr_Newbie",
-  "version": "6",
+  "version": "7",
   "blt_version": 2,
   "priority": 100,
   "hooks": [

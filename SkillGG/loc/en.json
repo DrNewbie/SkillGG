@@ -11,5 +11,8 @@
   "skill_gg_skill_1_name": "Gawr Gura 'A'",
   "skill_gg_skill_1_desc": "Ignite on each nearby people.",
   "skill_gg_skill_2_name": "Overloading Mode",
-  "skill_gg_skill_2_desc": "Enable Bullet-Storm."
+  "skill_gg_skill_2_desc": "Enable Bullet-Storm.",
+  "skill_gg_opt_x_offset": "Icon: X Offset",
+  "skill_gg_opt_y_offset": "Icon: Y Offset",
+  "skill_gg_opt_icon_size": "Icon: Size"
 }
