@@ -1,0 +1,5 @@
+<table name="Vitalizer (Warcries)">
+	<AddFiles directory="assets">
+		<texture path="guis/skill_gg/350_hp_upup/icon01" />
+	</AddFiles>
+</table>
