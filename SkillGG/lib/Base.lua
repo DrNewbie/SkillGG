@@ -224,7 +224,7 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 	end
 	
 	function SkillGGSystem:UseSkill()
-		if self:GetCurretSkill() > 0 then
+		if self:GetCurretSkill() > 0 and self:GetSkillCDRatio() >= 1 then
 			SkillGGSystem.AskUseSkill = true
 		end
 		return
