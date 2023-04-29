@@ -2,7 +2,7 @@
   "name": "Warcries",
   "description": " ",
   "author": "Dr_Newbie",
-  "version": "9.1",
+  "version": "9.2",
   "blt_version": 2,
   "priority": 100,
   "hooks": [

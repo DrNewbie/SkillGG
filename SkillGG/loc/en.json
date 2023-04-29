@@ -4,7 +4,7 @@
   "bm_menu_btn_equip_skill_gg": "Equip",
   "bm_menu_btn_unequip_skill_gg": "Unequip",
   "skill_gg_skill_desc_cd": "[ Cooldown: $$cd$$ ]",
-  "skill_gg_skill_desc_tt": "[ Times of use: $$tt$$ ]",
+  "skill_gg_skill_desc_tt": "[ Capacity: $$tt$$ ]",
   "skill_gg_skill_desc_dd": "[ Duration: $$dd$$ ]",
   "skill_gg_skill_0_name": "No Skill",
   "skill_gg_skill_0_desc": " ",
