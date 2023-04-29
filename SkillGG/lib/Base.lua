@@ -6,6 +6,8 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 	SkillGGSystem.Mod_Ids = Idstring("Skill GG"):key()
 	SkillGGSystem.SkillCD = 1 --skill cooldown
 	SkillGGSystem.SkillDT = 1
+	SkillGGSystem.SkillTT = nil
+	SkillGGSystem.SkillTTNow = nil
 	SkillGGSystem.SkillHUDPanel = nil
 	SkillGGSystem.AskUseSkill = false --Tell system to run skill func
 	SkillGGSystem.OggBuffer = nil
@@ -185,6 +187,7 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 			self.Settings.skill_now = var
 			self.SkillCD = skill_data.cd or 1
 			self.SkillDT = skill_data.dt or 0
+			self.SkillTT = skill_data.tt or nil
 			self:SetSkillHUDIcon(skill_data.texture)
 		end
 		self:save()
@@ -214,17 +217,33 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 		return self.SkillDT
 	end
 
+	function SkillGGSystem:AddSkillTT(var)
+		self.SkillTTNow = self.SkillTTNow or 0
+		self.SkillTTNow = self.SkillTTNow + var
+		return
+	end
+
+	function SkillGGSystem:CheckSkillTTIsFull()
+		if type(self.SkillTT) == "number" and type(self.SkillTTNow) == "number" and self.SkillTTNow >= self.SkillTT then
+			return true
+		end
+		return false
+	end
+
 	function SkillGGSystem:AddSkillDT(var)
 		self.SkillDT = math.min(self.SkillDT + var, self.SkillCD)
 		return
 	end
 
 	function SkillGGSystem:GetSkillCDRatio()
+		if self:CheckSkillTTIsFull() then
+			return 0
+		end
 		return math.clamp(self.SkillDT/self.SkillCD, 0, 1)
 	end
 	
 	function SkillGGSystem:UseSkill()
-		if self:GetCurretSkill() > 0 and self:GetSkillCDRatio() >= 1 then
+		if self:GetCurretSkill() > 0 and self:GetSkillCDRatio() >= 1 and not self:CheckSkillTTIsFull() then
 			SkillGGSystem.AskUseSkill = true
 		end
 		return
@@ -267,7 +286,7 @@ _G.SkillGGSystem = _G.SkillGGSystem or {}
 			__desc = __desc:gsub("%$%$dd%$%$", __dd)
 		end
 		__desc = __desc .. "\n" ..	managers.localization:text("skill_gg_skill_desc_tt")
-		local __tt = skill_data.tt and (tostring(skill_data.tt).."s") or "Unlimited"
+		local __tt = skill_data.tt and (tostring(skill_data.tt).."") or "Unlimited"
 		__desc = __desc:gsub("%$%$tt%$%$", __tt)
 		return __desc
 	end

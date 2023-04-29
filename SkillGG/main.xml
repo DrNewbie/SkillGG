@@ -1,5 +1,5 @@
 <table name="Warcries" global_key="Warcries" core_class="lib/Setup.lua">
-	<AssetUpdates id="Skill GG" version="9">
+	<AssetUpdates id="Skill GG" version="9.1">
         <custom_provider 
 			version_api_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.txt" 
 			download_url="https://drnewbie.github.io/SkillGG/UpdateProvider/SkillGG.zip"
