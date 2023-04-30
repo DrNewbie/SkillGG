@@ -12,7 +12,7 @@ else
 			dofile(Traumaplates410WarCry.ModPath.."lua/playerdamage.lua")
 		end
 		managers.player.__Traumaplates410WarCry = managers.player.__Traumaplates410WarCry or 0
-		managers.player.__Traumaplates410WarCry = managers.player.__Traumaplates410WarCry + 300
+		managers.player.__Traumaplates410WarCry = managers.player.__Traumaplates410WarCry + 30
 		managers.player:player_unit():sound_source():post_event("bar_armor_finished")
 	end
 end
